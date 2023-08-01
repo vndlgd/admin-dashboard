@@ -1,0 +1,105 @@
+:root {
+    --sidebar-color: #0284c7;
+    --main-content-background: #cbd5e1;
+    --card-color: white;
+    --card-border-color: #fbbf24;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --light-text-color: rgba(0, 0, 0, 0.8);
+}
+
+html {
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+div {
+    border: 1px solid red;
+}
+
+/* remove top and left gaps */
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+/* sidebar  */
+
+.sidebar {
+    color: var(--card-color);
+    background-color: var(--sidebar-color);
+    display: grid;
+    grid-row: span 2;
+    padding-left: 5px;
+}
+
+.branding {
+    display: grid;
+    grid-template-columns: 80px 80px;
+    align-items: center;
+}
+
+.branding .icon {
+    height: 50px;
+    width: 50px;
+}
+
+.branding p {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.navigation {
+    display: grid;
+    grid-template-columns: 80px 80px;
+    align-items: center;
+}
+
+.navigation p {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navigation .icon {
+    height: 25px;
+    width: 25px;
+    padding-left: 10px;
+}
+
+/* header  */
+
+.header {
+    background-color: var(--card-color);
+}
+
+/* main content */
+
+.main-content {
+    background-color: var(--main-content-background);
+    grid-column: 2 / 3;
+}
+
+/* lists  */
+
+ul,
+li {
+    list-style-type: none;
+}
+
+/* a links */
+
+a {
+    text-decoration: none;
+    color: var(--card-color);
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--main-content-background);
+}
