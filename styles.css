@@ -4,12 +4,17 @@
     --card-color: white;
     --card-border-color: #fbbf24;
     --shadow-color: rgba(0, 0, 0, 0.1);
-    --light-text-color: rgba(0, 0, 0, 0.8);
+    --light-text-color: rgba(0, 0, 0, 0.6);
 }
 
 html {
     font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
+
+/* for debugging purposes */
+/* div {
+    border: 1px solid red;
+} */
 
 /* remove top and left gaps */
 body {
@@ -19,20 +24,22 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: 20% 80%;
-    grid-template-rows: 1fr 7fr;
+    grid-template-areas:
+        "bar header header"
+        "bar main main"
+        "bar main main";
+    grid-template-columns: 300px 80%;
+    grid-template-rows: 200px 90%;
     height: 100vh;
 }
 
 /* sidebar  */
 
 .sidebar {
+    grid-area: bar;
     color: var(--card-color);
     background-color: var(--sidebar-color);
-    display: grid;
-    grid-row: span 2;
     padding-left: 5px;
-
 }
 
 .branding {
@@ -68,9 +75,14 @@ body {
     padding-left: 10px;
 }
 
+.navigation .icon {
+    padding-left: 20px;
+}
+
 /* header  */
 
 .header {
+    grid-area: header;
     background-color: var(--card-color);
     padding-left: 15px;
 }
@@ -131,18 +143,29 @@ body {
 /* main content */
 
 .main-content {
+    grid-area: main;
     background-color: var(--main-content-background);
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+        "projects main-side";
+    grid-template-columns: 70% 30%;
     padding: 15px;
 }
 
 /* projects */
 
+.projects {
+    grid-area: projects;
+}
+
 .projects-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
+}
+
+.projects-container p:not(.card-title) {
+    color: var(--light-text-color);
 }
 
 .projects-container .card {
@@ -178,6 +201,7 @@ body {
 }
 
 .main-side {
+    grid-area: main-side;
     display: grid;
     padding-left: 15px;
 }
@@ -188,6 +212,10 @@ body {
     border-radius: 15px;
     box-shadow: 0px 2px 4px var(--shadow-color);
     padding: 35px;
+}
+
+.announcements-container p:not(.title) {
+    color: var(--light-text-color);
 }
 
 .section-1,
